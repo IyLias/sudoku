@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <title> Sudoku </title>
+
+        <style>
+            .header{
+                text-align: center;
+            }
+            
+            .game_board{
+                text-align: center;
+            }
+        
+            table{
+                border-collapse: collapse;
+            }
+        
+            table,td,th{
+                
+                border: 3px solid skyblue;
+            }
+
+            th{
+                border: 1px solid lightblue;
+                height: 60px;
+                width: 60px;
+            }
+
+            td{
+                border: 1px solid lightblue;
+                height: 60px;
+                width: 60px;
+            }
+        
+            tr:first-child td{
+                border-top : 3px solid;
+                border-top-color: skyblue;
+            }
+
+            tr:nth-child(3n) td{
+                border-bottom: 3px solid;
+                border-bottom-color: skyblue;
+            }
+
+            th:nth-child(3n){
+                border-right: 3px solid;
+                border-right-color: skyblue;
+            }
+
+            td:nth-child(3n){
+                border-right: 3px solid;
+                border-right-color: skyblue;
+            }
+
+            .submit{
+                text-align: center;
+                font-size: 10px;
+            }
+
+        </style>
+
+
+
+    </head>
+
+    <body>
+        <div class="header">
+            <h1> Sudoku </h1>
+        </div>
+
+        <div id="main_body">
+            <table align="center">
+                <tr>
+                    <th id= "one_one"></th>
+                    <th id= "one_two"></th>
+                    <th id= "one_three"></th>
+                    <th id= "one_four"></th>
+                    <th id= "one_five"></th>
+                    <th id= "one_six"></th>
+                    <th id= "one_seven"></th>
+                    <th id= "one_eight"></th>
+                    <th id= "one_nine"></th>
+                </tr>
+                <tr>
+                    <td id= "two_one"></td>
+                    <td id= "two_two"></td>
+                    <td id= "two_three"></td>
+                    <td id= "two_four"></td>
+                    <td id= "two_five"></td>
+                    <td id= "two_six"></td>
+                    <td id= "two_seven"></td>
+                    <td id= "two_eight"></td>
+                    <td id= "two_nine"></td>
+                </tr>
+                <tr>
+                    <td id= "three_one"></td>
+                    <td id= "three_two"></td>
+                    <td id= "three_three"></td>
+                    <td id= "three_four"></td>
+                    <td id= "three_five"></td>
+                    <td id= "three_six"></td>
+                    <td id= "three_seven"></td>
+                    <td id= "three_eight"></td>
+                    <td id= "three_nine"></td>
+                </tr>
+                <tr>
+                    <td id= "four_one"></td>
+                    <td id= "four_two"></td>
+                    <td id= "four_three"></td>
+                    <td id= "four_four"></td>
+                    <td id= "four_five"></td>
+                    <td id= "four_six"></td>
+                    <td id= "four_seven"></td>
+                    <td id= "four_eight"></td>
+                    <td id= "four_nine"></td>
+                </tr>
+                <tr>
+                    <td id= "five_one"></td>
+                    <td id= "five_two"></td>
+                    <td id= "five_three"></td>
+                    <td id= "five_four"></td>
+                    <td id= "five_five"></td>
+                    <td id= "five_six"></td>
+                    <td id= "five_seven"></td>
+                    <td id= "five_eight"></td>
+                    <td id= "five_nine"></td>
+                </tr>
+                <tr>
+                    <td id= "six_one"></td>
+                    <td id= "six_two"></td>
+                    <td id= "six_three"></td>
+                    <td id= "six_four"></td>
+                    <td id= "six_five"></td>
+                    <td id= "six_six"></td>
+                    <td id= "six_seven"></td>
+                    <td id= "six_eight"></td>
+                    <td id= "six_nine"></td>
+                </tr>
+                <tr>
+                    <td id= "seven_one"></td>
+                    <td id= "seven_two"></td>
+                    <td id= "seven_three"></td>
+                    <td id= "seven_four"></td>
+                    <td id= "seven_five"></td>
+                    <td id= "seven_six"></td>
+                    <td id= "seven_seven"></td>
+                    <td id= "seven_eight"></td>
+                    <td id= "seven_nine"></td>
+                </tr>
+                <tr>
+                    <td id= "eight_one"></td>
+                    <td id= "eight_two"></td>
+                    <td id= "eight_three"></td>
+                    <td id= "eight_four"></td>
+                    <td id= "eight_five"></td>
+                    <td id= "eight_six"></td>
+                    <td id= "eight_seven"></td>
+                    <td id= "eight_eight"></td>
+                    <td id= "eight_nine"></td>
+                </tr>
+                <tr>
+                    <td id= "nine_one"></td>
+                    <td id= "nine_two"></td>
+                    <td id= "nine_three"></td>
+                    <td id= "nine_four"></td>
+                    <td id= "nine_five"></td>
+                    <td id= "nine_six"></td>
+                    <td id= "nine_seven"></td>
+                    <td id= "nine_eight"></td>
+                    <td id= "nine_nine"></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <br>
+
+        <div class="submit">
+            <input type="button" id="reset_button" value="reset"/>
+            <input type="button" id="solve_button" value="solve"/>
+            <input type="button" id="check_button" value="check"/>
+            <input type="button" id="new_problem_button" value="new problem"/>
+        </div>
+
+        <script src="mysudoku.js"></script>
+
+        <marquee direction="right"> hello sudoku world</marquee>
+
+        <div class="footer">
+            <center style="background-color: #292929; height: 28px;">
+                <p style="font-size: 12px; color: #a9a9a9; padding-top: 5px;">
+                Copyrights@2022 19비 818기 권석진 all rights reserved</p>
+            </center>
+
+        </div>
+
+
+    </body>
+
+    </html>
