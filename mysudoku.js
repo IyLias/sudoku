@@ -41,7 +41,13 @@ class SudokuGame{
 
     initGameDatabase(){
 
-        const gameDatas = [];
+        // 추후 데이터 넣을 예정..
+        const gameDatas = [
+
+
+
+
+        ];
 
 
         for(let i=0;i<GAME_DATABASE;i++)
@@ -79,24 +85,54 @@ class SudokuGame{
 
     // for reset button
     printBaseSudokuMap(){
+        const number = ['zero','one','two','three','four','five','six','seven','eight','nine'];
 
+        for(var i=0;i<BOARD_SIZE;i++){
+            for(var j=0;j<BOARD_SIZE;j++){
+                let $baseNumber = document.querySelector('#' + number[i+1] + '_' + number[j+1]);
+                $baseNumber.innerHTML = " ";
+                if(this.base_sudokuMap[i][j] !== 0){
+                    $baseNumber.innerHTML = this.base_sudokuMap[i][j];
+                    $baseNumber.style.color = 'skyblue';
+                    $baseNumber.style.fontWeight = 'bold';
+                }
 
+            }
+
+        }
 
     }
 
 
 
     printUserSudokuMap(){
+        const number = ['zero','one','two','three','four','five','six','seven','eight','nine'];
 
+        for(var i=0;i<BOARD_SIZE;i++){
+            for(var j=0;j<BOARD_SIZE;j++){
+                if(this.user_sudokuMap[i][j] !== 0)
+                    document.getElementById(number[i+1] + '_' + number[j+1]).innerHTML = this.user_sudokuMap[i][j];
+            }
 
-
+        }
     }
 
 
     // print solved sudokuMap
     printSolvedSudokuMap(){
+        const number = ['zero','one','two','three','four','five','six','seven','eight','nine'];
 
+        for(var i=0;i<BOARD_SIZE;i++){
+            for(var j=0;j<BOARD_SIZE;j++){
+                let $solvedNumber = document.querySelector('#' + number[i+1] + '_' + number[j+1]);
+                $solvedNumber.innerHTML = " ";
+                $solvedNumber.innerHTML = this.solved_sudokuMap[i][j];
+                $solvedNumber.style.color = 'skyblue';
+                $solvedNumber.style.fontWeight = 'bold';
+                
+            }
 
+        }
 
     }
 
@@ -104,7 +140,12 @@ class SudokuGame{
     // search sudoku map and find empty spot
     find_emptySpot(){
 
-
+        for(var i=0;i<BOARD_SIZE;i++)
+            for(var j=0;j<BOARD_SIZE;j++)
+                if(this.solved_sudokuMap[i][j] === 0)
+                    return [i,j];
+        
+        return -1;
     }
 
     checkUserAnswer(){
