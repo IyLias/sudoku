@@ -19,8 +19,18 @@
             }
         
             table,td,th{
-                
+                text-align: center;
                 border: 3px solid skyblue;
+            } 
+            
+            tr:first-child td{
+                border-top : 3px solid;
+                border-top-color: skyblue;
+            }
+
+            tr:nth-child(3n) td{
+                border-bottom: 3px solid;
+                border-bottom-color: skyblue;
             }
 
             th{
@@ -35,16 +45,7 @@
                 width: 60px;
             }
         
-            tr:first-child td{
-                border-top : 3px solid;
-                border-top-color: skyblue;
-            }
-
-            tr:nth-child(3n) td{
-                border-bottom: 3px solid;
-                border-bottom-color: skyblue;
-            }
-
+        
             th:nth-child(3n){
                 border-right: 3px solid;
                 border-right-color: skyblue;
